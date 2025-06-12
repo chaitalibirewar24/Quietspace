@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import './App.css';
 import VideoBackground from './VideoBackground';
+import LoginModal from "./LoginModal";  // Capital 'L' and matches filename
 import Features from './Features';
 import AppComing from './AppComing';
 import Footer from './Footer';
 
-// ✅ Import video files
 import cafeVideo from './assets/Cafevideo.mp4';
 import libraryVideo from './assets/libraryvideo.mp4';
 import parkVideo from './assets/Parkvideo.mp4';
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false); // ✅ moved outside useEffect
+
   useEffect(() => {
     const videoList = [cafeVideo, libraryVideo, parkVideo];
     let current = 0;
@@ -33,6 +35,8 @@ function App() {
 
   return (
     <>
+      <button onClick={() => setShowLogin(true)} className="login-btn">Log in</button>
+      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <VideoBackground />
       <Features />
       <AppComing />

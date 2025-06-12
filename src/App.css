@@ -472,3 +472,19 @@ ul a {
 .copyright {
     text-align: center;
 }
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  background-color: #e23744;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
