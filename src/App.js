@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
+
 import VideoBackground from './VideoBackground';
-import LoginModal from "./LoginModal";  // Capital 'L' and matches filename
+import LoginModal from "./LoginModal";
 import Features from './Features';
 import AppComing from './AppComing';
 import Footer from './Footer';
+import Main from './main';
 
 import cafeVideo from './assets/Cafevideo.mp4';
 import libraryVideo from './assets/libraryvideo.mp4';
 import parkVideo from './assets/Parkvideo.mp4';
 
-function App() {
-  const [showLogin, setShowLogin] = useState(false); // ✅ moved outside useEffect
+function LandingPage() {
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
     const videoList = [cafeVideo, libraryVideo, parkVideo];
     let current = 0;
-    const player = document.getElementById("videoPlayer");
 
     function playVideo(index) {
+      const player = document.getElementById("videoPlayer");
       if (!player) return;
       player.src = videoList[index];
       player.load();
@@ -30,7 +33,9 @@ function App() {
       }, 5000);
     }
 
-    playVideo(current);
+    setTimeout(() => {
+      playVideo(current);
+    }, 0);
   }, []);
 
   return (
@@ -42,6 +47,17 @@ function App() {
       <AppComing />
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/main" element={<Main />} />
+      </Routes>
+    </Router>
   );
 }
 
