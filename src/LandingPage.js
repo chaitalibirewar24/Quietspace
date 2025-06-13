@@ -1,10 +1,12 @@
 // src/LandingPage.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './main.css'; // Or another CSS file that styles your video section
+import './main.css';
+import LoginModal from './LoginModal'; // Make sure this import is correct!
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const [showLogin, setShowLogin] = useState(false); // modal visibility state
 
   const goToMain = () => {
     navigate('/main');
@@ -17,14 +19,19 @@ const LandingPage = () => {
           <source src="/videos/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
         <div className="overlay-text">
           <h1 id="website-name">QuietSpace</h1>
           <h6 id="slogan">For your Quiet days</h6>
+
           <button onClick={goToMain} className="welcome-button">
             Welcome
           </button>
         </div>
       </section>
+
+      {/* Render modal if showLogin is true */}
+      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
     </div>
   );
 };

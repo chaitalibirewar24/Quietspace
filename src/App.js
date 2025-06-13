@@ -40,7 +40,6 @@ function LandingPage() {
 
   return (
     <>
-      <button onClick={() => setShowLogin(true)} className="login-btn">Log in</button>
       <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <VideoBackground />
       <Features />

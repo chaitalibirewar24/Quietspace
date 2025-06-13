@@ -1,31 +1,46 @@
-// src/Main.jsx
-import React from 'react';
-import './main.css';  // Or create a new CSS if needed
+import React, { useState } from 'react';
+import './main.css';
+import LoginModal from './LoginModal';
+import SignupModal from './SignupModal'; // ✅ import signup modal
 
 const Main = () => {
-  return (
-    <header>
-      <div className="navbar">
-        <div className="nav-logo border">
-          <div className="logo"></div>
-        </div>
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false); // ✅ new state for signup
 
-        <div className="nav-search">
-          <input type="text" placeholder="Search places" className="search-input" />
-          <div className="search-icon">
-            <i className="fa-solid fa-magnifying-glass"></i>
+  return (
+    <>
+      <header>
+        <div className="navbar">
+          <div className="nav-logo border">
+            <div className="logo"></div>
+          </div>
+
+          <div className="nav-search">
+            <input type="text" placeholder="Search places" className="search-input" />
+            <div className="search-icon">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+
+          {/* ✅ login button triggers login modal */}
+          <div className="nav-loginin border">
+            <button className="login-btn" onClick={() => setShowLogin(true)}>
+              Log In
+            </button>
+          </div>
+
+          {/* ✅ signup button triggers signup modal */}
+          <div className="nav-signup border">
+            <button className="login-btn" onClick={() => setShowSignup(true)}>
+              Sign Up
+            </button>
           </div>
         </div>
+      </header>
 
-        <div className="nav-loginin border">
-          <a href="#"><span>Log In</span></a>
-        </div>
-
-        <div className="nav-signup border">
-          <a href="#"><span>Sign Up</span></a>
-        </div>
-      </div>
-    </header>
+      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
+      <SignupModal isOpen={showSignup} onClose={() => setShowSignup(false)} />
+    </>
   );
 };
 
