@@ -1,4 +1,6 @@
 import React from 'react';
+import logo from '../assets/A.png';
+
 
 const Footer = () => {
   return (
@@ -25,6 +27,9 @@ const Footer = () => {
         </ul>
       </div>
       <div className="foot-pannel4">
+        <div className="footer-logo">
+    <img src={logo} alt="QuietSpace Logo" />
+  </div>
         <div className="copyright">
           © 2025, QuietSpace.com
         </div>

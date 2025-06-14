@@ -490,16 +490,21 @@ ul a {
 }
 
 .foot-pannel4 {
-    background-color: #2b0712;
-    color: white;
-    height: 100px;
-    font-size: 0.7rem;
-    text-align: center;
-    opacity: 0.9;
-
-    /*display: flex;
-    align-items: center;
-    justify-content: center;*/
+  background-color: #2b0712;
+  color: #e9e0e3;
+  height: 130px;
+  font-size: 0.7rem;
+  text-align: center;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+.footer-logo img {
+  height: 40px; /* adjust as needed */
+  margin-bottom: 8px;
 }
 
 .pages {
@@ -508,6 +513,7 @@ ul a {
 
 .copyright {
     text-align: center;
+     margin-top: 4px;
 }
 /* src/main.css */
 
