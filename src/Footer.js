@@ -25,9 +25,6 @@ const Footer = () => {
           <a href="privacy.html" target="_blank" rel="noreferrer">Privacy Policy</a>
         </ul>
       </div>
-      <div className="foot-pannel3">
-        <div className="logo">{/* Optional logo */}</div>
-      </div>
       <div className="foot-pannel4">
         <div className="copyright">
           © 2025, QuietSpace.com
