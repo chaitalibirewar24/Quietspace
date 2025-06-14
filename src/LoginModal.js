@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { supabase } from './supabaseClient';
 import "./LoginModal.css";
 
 const LoginModal = ({ isOpen, onClose }) => {
