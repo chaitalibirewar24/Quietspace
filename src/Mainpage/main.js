@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './main.css';
-import LoginModal from './LoginModal';
-import SignupModal from './SignupModal'; // ✅ import signup modal
+import '../Mainpage/main.css';
+import LoginModal from '../Mainpage/LoginModal';
+import SignupModal from '../Mainpage/SignupModal'; // ✅ import signup modal
 
 const Main = () => {
   const [showLogin, setShowLogin] = useState(false);

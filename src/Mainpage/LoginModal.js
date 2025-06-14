@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { supabase } from './supabaseClient';
-import "./LoginModal.css";
+import { supabase } from '../supabaseClient';
+import "../Mainpage/LoginModal.css";
 
 const LoginModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');

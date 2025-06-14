@@ -1,6 +1,6 @@
 // src/SignupModal.jsx
 import React, { useState } from "react";
-import "./LoginModal.css"; // Reuse existing styles
+import './LoginModal.css'; // ✅ Correct
 
 const SignupModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');

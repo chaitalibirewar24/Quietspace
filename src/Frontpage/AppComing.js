@@ -1,11 +1,11 @@
 import React from 'react';
-import cafeIcon from './assets/cafe_icon.png';
-import libIcon from './assets/lib_icon.png';
-import parkIcon from './assets/park_icon.png';
-import natureIcon from './assets/nature_icon.png';
-import musicIcon from './assets/music_icon.png';
-import peaceIcon from './assets/peace_icon.png';
-import phoneImg from './assets/phone2.png';
+import cafeIcon from '../assets/cafe_icon.png';
+import libIcon from '../assets/lib_icon.png';
+import parkIcon from '../assets/park_icon.png';
+import natureIcon from '../assets/nature_icon.png';
+import musicIcon from '../assets/music_icon.png';
+import peaceIcon from '../assets/peace_icon.png';
+import phoneImg from '../assets/phone2.png';
 
 
 const AppComing = () => {

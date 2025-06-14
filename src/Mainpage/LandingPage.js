@@ -1,8 +1,8 @@
 // src/LandingPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './main.css';
-import LoginModal from './LoginModal'; // Make sure this import is correct!
+import './Mainpage/main.css';
+import LoginModal from './Mainpage/LoginModal'; // Make sure this import is correct!
 
 const LandingPage = () => {
   const navigate = useNavigate();

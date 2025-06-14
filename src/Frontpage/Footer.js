@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <footer>
       <div className="foot-pannel1">
-        <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Back to top</a>
       </div>
       <div className="foot-pannel2">
         <ul>

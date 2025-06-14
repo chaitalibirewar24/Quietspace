@@ -1,8 +1,8 @@
 import React from 'react';
-import cafeImg from './assets/Cafephoto.jpg';
-import libraryImg from './assets/libraryphoto.jpg';
-import parkImg from './assets/parkphoto.jpg';
-import './App.css';
+import cafeImg from '../assets/Cafephoto.jpg';
+import libraryImg from '../assets/libraryphoto.jpg';
+import parkImg from '../assets/parkphoto.jpg';
+import '../Frontpage/App.css';
 
 
 const Features = () => {
