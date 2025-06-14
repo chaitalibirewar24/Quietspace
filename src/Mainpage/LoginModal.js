@@ -3,19 +3,8 @@ import "../Mainpage/LoginModal.css";
 import "./LoginModal.css";
 
 const LoginModal = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState('');
 
   if (!isOpen) return null;
-
-  const handleSendEmail = async () => {
-    const { error } = await supabase.auth.signInWithOtp({ email });
-
-    if (error) {
-      alert("Error sending login link: " + error.message);
-    } else {
-      alert("Check your email for the login link!");
-    }
-  };
 
   return (
     <>
@@ -27,11 +16,8 @@ const LoginModal = ({ isOpen, onClose }) => {
           <input
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
           />
-          <button className="email-btn" onClick={handleSendEmail}>
-            Send Login Link
+          <button className="email-btn" >
           </button>
           <div className="or">or</div>
           <button className="google-btn">Sign in with Google</button>
