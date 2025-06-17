@@ -1,13 +1,11 @@
 import React from 'react';
-import logo from '../assets/A.png';
+import logo from '../assets/finalLogo.png';
 
 
 const Footer = () => {
   return (
     <footer>
-      <div className="foot-pannel1">
-      </div>
-      <div className="foot-pannel2">
+       <div className="foot-pannel2">
         <ul>
           <p>Get to Know Us</p>
           <a href="about.html" target="_blank" rel="noreferrer">About Us</a>
