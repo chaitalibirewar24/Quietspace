@@ -1,13 +1,11 @@
-
-
-/* Navbar Page */
+/* Navbar Styles */
 .navbar {
   background-color: #28051d;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 10px;
+  padding: 10px;
   gap: 10px;
   opacity: 0.9;
 }
@@ -25,6 +23,7 @@
   width: 100%;
 }
 
+/* Hover Border Around Logo */
 .border {
   border: 1.5px solid transparent;
   padding: 5px 10px;
@@ -35,6 +34,7 @@
   border: 1.5px solid white;
 }
 
+/* Search Bar */
 .nav-search {
   display: flex;
   align-items: center;
@@ -43,6 +43,7 @@
   height: 40px;
   border-radius: 3px;
   overflow: hidden;
+  transition: border 0.2s ease;
 }
 
 .search-input {
@@ -68,10 +69,13 @@
   border: 2px solid rgb(238, 111, 213);
 }
 
+/* Navbar Text */
 span {
   font-size: 0.9rem;
   color: white;
 }
+
+/* Login Button */
 .login-btn {
   background: none;
   border: none;
@@ -80,4 +84,191 @@ span {
   cursor: pointer;
 }
 
+/* Sliding Login/Signup Open Button */
+.open-login-btn {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #ff416c;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
 
+.open-login-btn:hover {
+  background-color: #e1335f;
+}
+/* ---------------- OVERLAY ---------------- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+/* ---------------- MODAL BOX ---------------- */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 460px;
+  height: 500px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 2rem;
+  line-height: 4rem;
+  font-weight: 500;
+}
+
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 6px;
+}
+
+.email-btn,
+.google-btn,
+.otp-btn {
+  height: 2.7rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: rgb(91, 90, 90);
+  cursor: pointer;
+}
+
+.otp-btn {
+  background-color: rgb(113, 3, 31);
+  color: white;
+  border: none;
+}
+
+.or {
+  text-align: center;
+  margin: 10px 0;
+  color: #999;
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-text a {
+  color: #e23744;
+  text-decoration: none;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ---------------- SLIDING AUTH CONTAINER ---------------- */
+.auth-container {
+  width: 90%;
+  max-width: 900px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.form-section {
+  width: 50%;
+  position: relative;
+  background: #fff;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-section {
+  width: 50%;
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  transition: all 0.5s ease;
+}
+
+.panel-content h2 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.panel-content p {
+  font-size: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.panel-content button {
+  padding: 10px 25px;
+  border: none;
+  background: white;
+  color: #ff416c;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Sliding Animation */
+.signup-mode .form-section {
+  transform: translateX(100%);
+}
+
+.signup-mode .info-section {
+  transform: translateX(-100%);
+}
+.open-login-btn {
+  padding: 12px 24px;
+  background-color: #ff416c;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.open-login-btn:hover {
+  background-color: #e1335f;
+}

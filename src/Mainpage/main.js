@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import '../Mainpage/main.css';
-import LoginModal from '../Mainpage/LoginModal';
-import SignupModal from '../Mainpage/SignupModal'; // ✅ import signup modal
+import AuthSlide from './AuthSlide';
 
 const Main = () => {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false); // ✅ new state for signup
+  const [showAuth, setShowAuth] = useState(false); // ✅ state to control AuthSlide
 
   return (
     <>
@@ -22,24 +20,23 @@ const Main = () => {
             </div>
           </div>
 
-          {/* ✅ login button triggers login modal */}
-          <div className="nav-loginin border">
-            <button className="login-btn" onClick={() => setShowLogin(true)}>
-              Log In
-            </button>
-          </div>
-
-          {/* ✅ signup button triggers signup modal */}
-          <div className="nav-signup border">
-            <button className="login-btn" onClick={() => setShowSignup(true)}>
-              Sign Up
-            </button>
-          </div>
+          {/* ✅ This button toggles the sliding Auth modal */}
+          <button onClick={() => setShowAuth(true)} className="open-login-btn">
+            Login / Signup
+          </button>
         </div>
       </header>
 
-      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
-      <SignupModal isOpen={showSignup} onClose={() => setShowSignup(false)} />
+      {/* ✅ Conditionally show the AuthSlide modal */}
+      {showAuth && (
+        <>
+          <div className="overlay" onClick={() => setShowAuth(false)} />
+          <div className="modal">
+            <AuthSlide />
+            <span className="close" onClick={() => setShowAuth(false)}>&times;</span>
+          </div>
+        </>
+      )}
     </>
   );
 };

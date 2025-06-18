@@ -1,15 +1,17 @@
 // src/LandingPage.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Mainpage/main.css';
-import LoginModal from './Mainpage/LoginModal'; // Make sure this import is correct!
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [showLogin, setShowLogin] = useState(false); // modal visibility state
 
   const goToMain = () => {
     navigate('/main');
+  };
+
+  const goToAuth = () => {
+    navigate('/auth');
   };
 
   return (
@@ -27,11 +29,9 @@ const LandingPage = () => {
           <button onClick={goToMain} className="welcome-button">
             Welcome
           </button>
+
         </div>
       </section>
-
-      {/* Render modal if showLogin is true */}
-      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
     </div>
   );
 };

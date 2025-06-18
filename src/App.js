@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+
 import './Frontpage/App.css';
 
 import VideoBackground from './Frontpage/VideoBackground';
-import LoginModal from "./Mainpage/LoginModal";
 import Features from './Frontpage/Features';
 import AppComing from './Frontpage/AppComing';
 import Footer from './Frontpage/Footer';
@@ -13,8 +13,9 @@ import cafeVideo from './assets/Cafevideo.mp4';
 import libraryVideo from './assets/libraryvideo.mp4';
 import parkVideo from './assets/Parkvideo.mp4';
 
+// ✅ Landing Page Component
 function LandingPage() {
-  const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const videoList = [cafeVideo, libraryVideo, parkVideo];
@@ -40,15 +41,17 @@ function LandingPage() {
 
   return (
     <>
-      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <VideoBackground />
       <Features />
       <AppComing />
       <Footer />
+      <div style={{ textAlign: "center", margin: "2rem" }}>
+      </div>
     </>
   );
 }
 
+// ✅ App Component with Routes
 function App() {
   return (
     <Router>
@@ -59,5 +62,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
