@@ -28,7 +28,7 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
-  background: #FCDCE1;
+  background: #F8F0E3;
   color: rgb(105, 11, 31);
   /*background: #FFEADD;*/
   color: rgb(73, 13, 1);
@@ -65,7 +65,7 @@ html, body {
 
 /* Features Section */
 .features {
-  background-color: #FCDCE1;
+  background-color: #faf4eb;
   padding: 50px 16%;
 }
 
