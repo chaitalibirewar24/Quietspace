@@ -45,8 +45,6 @@ function LandingPage() {
       <Features />
       <AppComing />
       <Footer />
-      <div style={{ textAlign: "center", margin: "2rem" }}>
-      </div>
     </>
   );
 }
