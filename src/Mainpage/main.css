@@ -290,7 +290,7 @@ input[type="password"] {
 
 /* Info panel */
 .info-section {
-  background: linear-gradient(to right, #B993D6, #348AC7);
+  background: linear-gradient(to right,pink, #4bc0c8);
   color: white;
   z-index: 1;
   text-align: center;
@@ -326,6 +326,29 @@ input[type="password"] {
   color: #333;
   cursor: pointer;
   z-index: 10;
+}
+
+.tab-panel {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 40px;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+.tab {
+  font-size: 18px;
+  font-weight: 500;
+  color: #28051d;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.tab:hover {
+  background-color: #ffe0ec;
 }
 
 

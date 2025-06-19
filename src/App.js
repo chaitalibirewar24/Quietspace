@@ -1,19 +1,32 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Outlet
+} from "react-router-dom";
 
-import './Frontpage/App.css';
+import "./Frontpage/App.css";
 
-import VideoBackground from './Frontpage/VideoBackground';
-import Features from './Frontpage/Features';
-import AppComing from './Frontpage/AppComing';
-import Footer from './Frontpage/Footer';
-import Main from './Mainpage/main';
+import VideoBackground from "./Frontpage/VideoBackground";
+import Features from "./Frontpage/Features";
+import AppComing from "./Frontpage/AppComing";
+import Footer from "./Frontpage/Footer";
 
-import cafeVideo from './assets/Cafevideo.mp4';
-import libraryVideo from './assets/libraryvideo.mp4';
-import parkVideo from './assets/Parkvideo.mp4';
+import Main from "./Mainpage/main"; // Contains navbar + tabs
 
-// ✅ Landing Page Component
+// Tabs
+import Parks from "./Mainpage/Tabs/Parks.js";
+import Cafes from "./Mainpage/Tabs/Cafe.js";
+import Libraries from "./Mainpage/Tabs/Library.js";
+
+// Videos
+import cafeVideo from "./assets/Cafevideo.mp4";
+import libraryVideo from "./assets/libraryvideo.mp4";
+import parkVideo from "./assets/Parkvideo.mp4";
+
+// ✅ Landing Page
 function LandingPage() {
   const navigate = useNavigate();
 
@@ -49,17 +62,32 @@ function LandingPage() {
   );
 }
 
-// ✅ App Component with Routes
+// ✅ Inline Layout Component for Tabs (Navbar + Tabs + Outlet)
+function MainWithTabs() {
+  return (
+    <>
+      <Main />
+      <Outlet />
+    </>
+  );
+}
+
+// ✅ Final App Component
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/main" element={<Main />} />
+
+        {/* Grouped routes under Main layout */}
+        <Route element={<MainWithTabs />}>
+          <Route path="/parks" element={<Parks />} />
+          <Route path="/cafes" element={<Cafes />} />
+          <Route path="/libraries" element={<Libraries />} />
+        </Route>
       </Routes>
     </Router>
   );
 }
-
 
 export default App;
