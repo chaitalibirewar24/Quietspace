@@ -3,7 +3,7 @@ import '../Mainpage/main.css';
 import AuthSlide from './AuthSlide';
 
 const Main = () => {
-  const [showAuth, setShowAuth] = useState(false); // ✅ state to control AuthSlide
+  const [showAuth, setShowAuth] = useState(false);
 
   return (
     <>
@@ -20,23 +20,14 @@ const Main = () => {
             </div>
           </div>
 
-          {/* ✅ This button toggles the sliding Auth modal */}
           <button onClick={() => setShowAuth(true)} className="open-login-btn">
             Login / Signup
           </button>
         </div>
       </header>
 
-      {/* ✅ Conditionally show the AuthSlide modal */}
-      {showAuth && (
-        <>
-          <div className="overlay" onClick={() => setShowAuth(false)} />
-          <div className="modal">
-            <AuthSlide />
-            <span className="close" onClick={() => setShowAuth(false)}>&times;</span>
-          </div>
-        </>
-      )}
+      {/* ✅ Show AuthSlide as floating panel */}
+      {showAuth && <AuthSlide onClose={() => setShowAuth(false)} />}
     </>
   );
 };
