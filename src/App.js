@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
   Outlet
 } from "react-router-dom";
-
+// ✅ Landing Page (from Frontpage folder)
+//import LandingPage from "./Frontpage/LandingPage";
 import "./Frontpage/App.css";
 
 import VideoBackground from "./Frontpage/VideoBackground";
@@ -14,14 +15,12 @@ import Features from "./Frontpage/Features";
 import AppComing from "./Frontpage/AppComing";
 import Footer from "./Frontpage/Footer";
 
-import Main from "./Mainpage/main"; // Contains navbar + tabs
+// ✅ Main layout and tabbed subpages
+import Main from "./Mainpage/main";
+import Parks from "./Mainpage/Tabs/Parks";
+import Cafes from "./Mainpage/Tabs/Cafe";
+import Libraries from "./Mainpage/Tabs/Library";
 
-// Tabs
-import Parks from "./Mainpage/Tabs/Parks.js";
-import Cafes from "./Mainpage/Tabs/Cafe.js";
-import Libraries from "./Mainpage/Tabs/Library.js";
-
-// Videos
 import cafeVideo from "./assets/Cafevideo.mp4";
 import libraryVideo from "./assets/libraryvideo.mp4";
 import parkVideo from "./assets/Parkvideo.mp4";
@@ -52,17 +51,25 @@ function LandingPage() {
     }, 0);
   }, []);
 
-  return (
-    <>
-      <VideoBackground />
-      <Features />
-      <AppComing />
-      <Footer />
-    </>
-  );
+ return (
+  <>
+    <VideoBackground />
+
+    <div className="overlay-text">
+<button onClick={() => navigate('/parks')} className="welcome-button">
+        Welcome
+      </button>
+    </div>
+
+    <Features />
+    <AppComing />
+    <Footer />
+  </>
+);
+
 }
 
-// ✅ Inline Layout Component for Tabs (Navbar + Tabs + Outlet)
+// ✅ Layout wrapper to keep Navbar + Tabs
 function MainWithTabs() {
   return (
     <>
@@ -72,14 +79,15 @@ function MainWithTabs() {
   );
 }
 
-// ✅ Final App Component
+// ✅ App Entry Point
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Frontpage Landing */}
         <Route path="/" element={<LandingPage />} />
 
-        {/* Grouped routes under Main layout */}
+        {/* Tab routes under shared layout */}
         <Route element={<MainWithTabs />}>
           <Route path="/parks" element={<Parks />} />
           <Route path="/cafes" element={<Cafes />} />

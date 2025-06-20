@@ -1,13 +1,14 @@
 // src/LandingPage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Mainpage/main.css';
+import '../Mainpage/main.css';
+
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   const goToMain = () => {
-    navigate('/main');
+    navigate('/parks');
   };
 
   const goToAuth = () => {
