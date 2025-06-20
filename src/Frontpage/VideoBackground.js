@@ -16,6 +16,9 @@ const VideoBackground = () => {
         <div className="overlay-text">
           <h1 id="website-name">QuietSpace</h1>
           <h6 id="slogan">for your quiet days</h6>
+          <button onClick={() => navigate('/parks')} className="welcome-button">
+          Welcome
+        </button>
         </div>
       </section>
     </div>

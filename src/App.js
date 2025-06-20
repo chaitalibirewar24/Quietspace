@@ -56,9 +56,7 @@ function LandingPage() {
     <VideoBackground />
 
     <div className="overlay-text">
-<button onClick={() => navigate('/parks')} className="welcome-button">
-        Welcome
-      </button>
+  
     </div>
 
     <Features />
