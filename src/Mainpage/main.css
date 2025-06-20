@@ -17,6 +17,7 @@
   height: 60px; /* Increased to better fit logo */
   width: 150px;
   padding: 5px 10px;
+  margin-left: 30px;
 
 }
 
@@ -48,9 +49,10 @@
   background-color: pink;
   width: 620px;
   height: 40px;
-  border-radius: 3px;
+  border-radius: 20px;
   overflow: hidden;
   transition: border 0.2s ease;
+  margin-left: 300px;
 }
 
 .search-input {
@@ -106,6 +108,8 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 30px;
+
 }
 
 .open-login-btn:hover {
