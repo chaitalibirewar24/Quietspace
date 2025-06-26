@@ -9,7 +9,7 @@ const Main = () => {
 
   return (
     <>
-      <header class="header-class">
+      <header className="header-class">
         <div className="nav-tab">
         <div className="navbar">
           <div className="nav-logo border">
@@ -34,7 +34,9 @@ const Main = () => {
 
             <input type="text" placeholder="Search places" className="search-input" />
             <div className="search-icon">
+              
               <i className="fa-solid fa-magnifying-glass"></i>
+              
             </div>
           </div>
 
