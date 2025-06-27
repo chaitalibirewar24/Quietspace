@@ -339,7 +339,7 @@ input[type="password"] {
   gap: 30px;
   margin: 0px 40px;
   padding: 10px 0;
-  border-bottom: 2px solid #e69595;
+  border-bottom: 2px solid #60072b;
   margin-left: 150px;
   margin-right: 150px;
   background-color:white;
@@ -355,6 +355,7 @@ input[type="password"] {
   padding: 10px 15px;
   transition: background-color 0.3s;
   background-color: #ffffff;
+  border-radius: 10px;
 
   
 }
@@ -387,10 +388,10 @@ input[type="password"] {
   border-right: 1px solid #ccc;
 }
 
-.location-icon i {
+.location-icon {
   color: #60072b;
-  margin-right: 5px;
-  font-size: 16px;
+  font-size: 1.2rem;
+
 }
 
 .location-dropdown {
@@ -400,7 +401,14 @@ input[type="password"] {
   font-size: 14px;
   outline: none;
   cursor: pointer;
+  
 }
+.location-dropdown option {
+  background-color: white;
+  color: #60072b;
+}
+
+
 
 .search-input {
   flex: 1;

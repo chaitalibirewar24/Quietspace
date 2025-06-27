@@ -52,6 +52,7 @@ const Main = () => {
         <Link to="/cafes" className="tab">Cafes</Link>
         <Link to="/libraries" className="tab">Libraries</Link>
       </div>
+      
 
       {showAuth && <AuthSlide onClose={() => setShowAuth(false)} />}
         </div>
