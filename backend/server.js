@@ -1,28 +1,18 @@
-app.post("/api/login", async (req, res) => {
-  const { email, password } = req.body;
+const express = require('express');
+const cors = require('cors');
+const pool = require('./db');
+require('dotenv').config();
 
-  if (!email || !password) return res.status(400).json({ message: "All fields required" });
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-  try {
-    const userRes = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
-    if (userRes.rows.length === 0) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
+app.use(cors());
+app.use(express.json());
 
-    const user = userRes.rows[0];
+// Routes
+const authRoute = require('./routes/auth'); // ✅ NEW
+app.use('/api/auth', authRoute); // ✅ NEW
 
-    // Compare password
-    const valid = await bcrypt.compare(password, user.password);
-    if (!valid) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
-
-    // Create JWT
-    const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
-
-    res.status(200).json({ message: "Login successful", token });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Server error" });
-  }
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

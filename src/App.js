@@ -6,6 +6,8 @@ import {
   Route,
   Outlet
 } from "react-router-dom";
+import AuthSlide from "./Mainpage/AuthSlide";
+
 // ✅ Landing Page (from Frontpage folder)
 //import LandingPage from "./Frontpage/LandingPage";
 import "./Frontpage/App.css";
@@ -84,6 +86,9 @@ function App() {
       <Routes>
         {/* Frontpage Landing */}
         <Route path="/" element={<LandingPage />} />
+
+        {/* Login/Signup Auth route */}
+        <Route path="/auth" element={<AuthSlide />} />
 
         {/* Tab routes under shared layout */}
         <Route element={<MainWithTabs />}>
