@@ -1,20 +1,33 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './Frontpage/App.css';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet
+} from "react-router-dom";
+// ✅ Landing Page (from Frontpage folder)
+//import LandingPage from "./Frontpage/LandingPage";
+import "./Frontpage/App.css";
 
-import VideoBackground from './Frontpage/VideoBackground';
-import LoginModal from "./Mainpage/LoginModal";
-import Features from './Frontpage/Features';
-import AppComing from './Frontpage/AppComing';
-import Footer from './Frontpage/Footer';
-import Main from './Mainpage/main';
+import VideoBackground from "./Frontpage/VideoBackground";
+import Features from "./Frontpage/Features";
+import AppComing from "./Frontpage/AppComing";
+import Footer from "./Frontpage/Footer";
 
-import cafeVideo from './assets/Cafevideo.mp4';
-import libraryVideo from './assets/libraryvideo.mp4';
-import parkVideo from './assets/Parkvideo.mp4';
+// ✅ Main layout and tabbed subpages
+import Main from "./Mainpage/main";
+import Parks from "./Mainpage/Tabs/Parks";
+import Cafes from "./Mainpage/Tabs/Cafe";
+import Libraries from "./Mainpage/Tabs/Library";
 
+import cafeVideo from "./assets/Cafevideo.mp4";
+import libraryVideo from "./assets/libraryvideo.mp4";
+import parkVideo from "./assets/Parkvideo.mp4";
+
+// ✅ Landing Page
 function LandingPage() {
-  const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const videoList = [cafeVideo, libraryVideo, parkVideo];
@@ -38,23 +51,46 @@ function LandingPage() {
     }, 0);
   }, []);
 
+ return (
+  <>
+    <VideoBackground />
+
+    <div className="overlay-text">
+  
+    </div>
+
+    <Features />
+    <AppComing />
+    <Footer />
+  </>
+);
+
+}
+
+// ✅ Layout wrapper to keep Navbar + Tabs
+function MainWithTabs() {
   return (
     <>
-      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
-      <VideoBackground />
-      <Features />
-      <AppComing />
-      <Footer />
+      <Main />
+      <Outlet />
     </>
   );
 }
 
+// ✅ App Entry Point
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Frontpage Landing */}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/main" element={<Main />} />
+
+        {/* Tab routes under shared layout */}
+        <Route element={<MainWithTabs />}>
+          <Route path="/parks" element={<Parks />} />
+          <Route path="/cafes" element={<Cafes />} />
+          <Route path="/libraries" element={<Libraries />} />
+        </Route>
       </Routes>
     </Router>
   );

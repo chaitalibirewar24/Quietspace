@@ -1,45 +1,63 @@
 import React, { useState } from 'react';
 import '../Mainpage/main.css';
-import LoginModal from '../Mainpage/LoginModal';
-import SignupModal from '../Mainpage/SignupModal'; // ✅ import signup modal
+import AuthSlide from './AuthSlide';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false); // ✅ new state for signup
+  const [showAuth, setShowAuth] = useState(false);
+  const [city, setCity] = useState(''); // ✅ renamed from "location" to avoid conflict
 
   return (
     <>
-      <header>
+      <header className="header-class">
+        <div className="nav-tab">
         <div className="navbar">
           <div className="nav-logo border">
             <div className="logo"></div>
           </div>
 
           <div className="nav-search">
+            <div className="location-container">
+              <i className="fa-solid fa-location-dot location-icon"></i>
+              <select
+                className="location-dropdown"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              >
+                <option value="">Select City</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="pune">Pune</option>
+                <option value="surat">Surat</option>
+                <option value="bangalore">Bangalore</option>
+              </select>
+            </div>
+
             <input type="text" placeholder="Search places" className="search-input" />
             <div className="search-icon">
+              
               <i className="fa-solid fa-magnifying-glass"></i>
+              
             </div>
           </div>
 
-          {/* ✅ login button triggers login modal */}
-          <div className="nav-loginin border">
-            <button className="login-btn" onClick={() => setShowLogin(true)}>
-              Log In
-            </button>
-          </div>
-
-          {/* ✅ signup button triggers signup modal */}
-          <div className="nav-signup border">
-            <button className="login-btn" onClick={() => setShowSignup(true)}>
-              Sign Up
-            </button>
-          </div>
+          <button onClick={() => setShowAuth(true)} className="open-login-btn">
+            Login / Signup
+          </button>
         </div>
-      </header>
+      
 
-      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
-      <SignupModal isOpen={showSignup} onClose={() => setShowSignup(false)} />
+      {/* Tab panel below navbar */}
+      <div className="tab-panel">
+        <Link to="/parks" className="tab">Parks</Link>
+        <Link to="/cafes" className="tab">Cafes</Link>
+        <Link to="/libraries" className="tab">Libraries</Link>
+      </div>
+      
+
+      {showAuth && <AuthSlide onClose={() => setShowAuth(false)} />}
+        </div>
+
+      </header>
     </>
   );
 };
