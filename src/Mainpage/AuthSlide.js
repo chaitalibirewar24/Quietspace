@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import '../Mainpage/main.css';
+import { supabase } from "../supabase.js";
+
 
 const AuthSlide = ({ onClose }) => {
   const [isSignup, setIsSignup] = useState(false);
@@ -17,38 +19,43 @@ const AuthSlide = ({ onClose }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const url = isSignup
-      ? 'http://localhost:5000/api/auth/signup'
-      : 'http://localhost:5000/api/auth/login';
+  if (isSignup) {
+    const { email, password, phone } = formData;
 
-    const payload = isSignup
-      ? { email: formData.email, password: formData.password, phone: formData.phone }
-      : { email: formData.email, password: formData.password };
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { phone },
+      },
+    });
 
-    try {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        alert(data.message);
-        if (!isSignup) {
-          // TODO: navigate to dashboard or homepage
-        }
-      } else {
-        alert(data.error || "Something went wrong");
-      }
-    } catch (err) {
-      alert("Server Error");
-      console.error(err);
+    if (error) {
+      alert("Signup failed: " + error.message);
+    } else {
+      alert("Signup successful! Please check your email to confirm.");
+      onClose();
     }
-  };
+  } else {
+    const { email, password } = formData;
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      alert("Login failed: " + error.message);
+    } else {
+      alert("Login successful!");
+      localStorage.setItem("token", data.session.access_token);
+      onClose();
+    }
+  }
+};
+
 
   return (
     <div className={`auth-container ${isSignup ? "signup-mode" : ""}`}>
