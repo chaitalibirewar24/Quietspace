@@ -11,8 +11,25 @@ const Cafes = () => {
           <div key={cafe.id} className="cafe-card">
             <img src={cafe.image} alt={cafe.name} className="cafe-image" />
             <h3>{cafe.name}</h3>
-            <p>Rating: ⭐ {cafe.rating.stars}</p>
-            <p>Tags: {cafe.keywords.join(', ')}</p>
+            <p class="rating">
+              Rating :  
+               {Array.from({ length: 5 }).map((_, index) => {
+                const fullStars = Math.floor(cafe.rating.stars);
+                const hasHalfStar = cafe.rating.stars - fullStars >= 0.5;
+
+                if (index < fullStars) {
+                  return <i key={index} className="fa-solid fa-star"></i>; // full star
+                } else if (index === fullStars && hasHalfStar) {
+                  return <i key={index} className="fa-solid fa-star-half-stroke"></i>; // half star
+                } else {
+                  return <i key={index} className="fa-regular fa-star"></i>; // empty star
+                }
+              })}
+              {cafe.rating.stars}
+              <p class='cuisine-price'>{cafe.cuisine.join(', ')}
+                {cafe.price}
+              </p>
+            </p>
           </div>
         ))}
       </div>

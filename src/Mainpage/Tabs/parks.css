@@ -1,7 +1,10 @@
+
 .Parks-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 10rem 1.25rem;
+  padding:20px  20px 110px 110px;
+  grid-template-columns: 295px 295px 295px 295px;
+  grid-template-rows: 300px 300px 300px 300px;
 }
 
 .Parks-card {
@@ -9,9 +12,39 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-align: center;
+  text-align: left;
   padding: 0.5rem;
+  color:rgb(103, 13, 49);
 }
+
+
+.parastoo {
+  font-family: "Parastoo", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+.Parks-card h3{
+  padding-top: 0.8rem;
+  font-family:parastoo ;
+  font-size: 25px;
+  text-align: left;
+  padding-left: 0.5rem;
+  white-space: nowrap;        /* Prevent line break */
+  overflow: hidden;           /* Hide overflow */
+  text-overflow: ellipsis;    /* Show "..." at the end */
+  max-width: 100%; 
+}
+p.rating{
+  font-size: 17px;
+  text-align: left;
+  padding-left: 0.5rem;
+}
+.fa-star ,.fa-star-half-stroke{
+  font-size: 0.9rem;
+  margin-right: 5px;
+ }
 
 .Parks-image {
   width: 100%;

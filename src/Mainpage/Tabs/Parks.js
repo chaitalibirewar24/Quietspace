@@ -1,18 +1,32 @@
 import React from 'react';
+import parks from '../../backend/parks-list';
 import './parks.css';
-import parks from '../../backend/parks-list.js';
 
 const Parks = () => {
   return (
     <div style={{ padding: '2rem' }}>
       <h2>Parks in Your City</h2>
       <div className="Parks-grid">
-        {parks.map((Park) => (
-          <div key={Park.id} className="Parks-card">
-            <img src={Park.image} alt={Park.name} className="Parks-image" />
-            <h3>{Park.name}</h3>
-            <p>Rating: ⭐ {Park.rating.stars}</p>
-            <p>Tags: {Park.keywords.join(', ')}</p>
+        {parks.map((cafe) => (
+          <div key={cafe.id} className="Parks-card">
+            <img src={cafe.image} alt={cafe.name} className="Parks-image" />
+            <h3>{cafe.name}</h3>
+            <p className="rating">
+              Rating :{' '}
+              {Array.from({ length: 5 }).map((_, index) => {
+                const fullStars = Math.floor(cafe.rating.stars);
+                const hasHalfStar = cafe.rating.stars - fullStars >= 0.5;
+
+                if (index < fullStars) {
+                  return <i key={index} className="fa-solid fa-star"></i>;
+                } else if (index === fullStars && hasHalfStar) {
+                  return <i key={index} className="fa-solid fa-star-half-stroke"></i>;
+                } else {
+                  return <i key={index} className="fa-regular fa-star"></i>;
+                }
+              })}
+              {' '}{cafe.rating.stars}
+            </p>
           </div>
         ))}
       </div>
@@ -21,4 +35,3 @@ const Parks = () => {
 };
 
 export default Parks;
-console.log("Rendering Parks component:", parks);
